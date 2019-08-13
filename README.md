@@ -1,2 +1,0 @@
-# HooksToDoList
-Created with CodeSandbox
