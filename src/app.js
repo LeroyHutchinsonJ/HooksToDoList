@@ -6,7 +6,7 @@ var ToDo = ({ todo, index }) => {
 };
 
 function App() {
-  var [todos, setTodos] = useState([
+  var [todos, setTodo] = useState([
     {
       text: "Learn About React",
       isCompleted: false
