@@ -17,3 +17,8 @@ html {
   cursor: pointer;
   color: white;
 }
+.input {
+  border-radius: 15%;
+  border: none;
+  padding: 5px;
+}

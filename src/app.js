@@ -6,7 +6,18 @@ var ToDo = ({ todo, index }) => {
   return <div className="todo">{todo.text}</div>;
 };
 
-function App() {
+//This is going to be a form that allows us to add inputs to our state
+var ToDoForm = ({ addTodo }) => {
+  const [value, setValue] = useState("");
+
+  return (
+    <form onSubmit={() => handleSubmit()}>
+      <input type="text" className="input" />
+    </form>
+  );
+};
+
+var App = () => {
   //This is a hook, it uses useState, you need to wrap the name in these [], this one is an array of objects
   var [todos, setTodo] = useState([
     {
@@ -31,8 +42,10 @@ function App() {
           </div>
         ))}
       </div>
+      <br />
+      <ToDoForm />
     </div>
   );
-}
+};
 
 export default App;
