@@ -1,11 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
+//This outputs the todos to the screen
 var ToDo = ({ todo, index }) => {
   return <div className="todo">{todo.text}</div>;
 };
 
 function App() {
+  //This is a hook, it uses useState, you need to wrap the name in these [], this one is an array of objects
   var [todos, setTodo] = useState([
     {
       text: "Learn About React",
