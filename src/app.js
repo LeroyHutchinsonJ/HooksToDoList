@@ -10,9 +10,21 @@ var ToDo = ({ todo, index }) => {
 var ToDoForm = ({ addTodo }) => {
   const [value, setValue] = useState("");
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
+
   return (
-    <form onSubmit={() => handleSubmit()}>
-      <input type="text" className="input" />
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
     </form>
   );
 };
@@ -33,6 +45,11 @@ var App = () => {
       isCompleted: false
     }
   ]);
+
+  const addTodo = text => {
+    const newTodos = [...todos, { text }];
+    setTodo(newTodos);
+  };
   return (
     <div className="App">
       <div className="todo-list">
@@ -41,9 +58,10 @@ var App = () => {
             <ToDo key={index} index={index} todo={todo} />
           </div>
         ))}
+        <br />
+        <ToDoForm addTodo={addTodo} />
       </div>
       <br />
-      <ToDoForm />
     </div>
   );
 };
